@@ -1,0 +1,13 @@
+version: "3"
+services:
+  noroo: # 이름은 어떤걸로 지정해도 상관없음
+    image: noroo-front
+    container_name: noroo-front-container
+    build:
+      dockerfile: Dockerfile # dockerfile이름
+      context: ./ # 도커파일 위치 명시
+    volumes:
+      - ./:/app # 로컬에 있는 모든 파일을 맵핑
+    ports:
+      - 3000:3000
+    stdin_open: true

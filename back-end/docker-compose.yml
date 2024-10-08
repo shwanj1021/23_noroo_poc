@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  noroo:
+    image: noroo-back
+    container_name: noroo-back-container
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    command: uvicorn app.main:app --host 0.0.0.0 --port 15021 --reload
+    ports:
+      - 15021:15021
+    volumes:
+      - ./app:/code/app
